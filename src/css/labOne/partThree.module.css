@@ -1,0 +1,140 @@
+.wrapper {
+    background: #299FB1;
+    height: 970px;
+    display: none;
+}
+
+.wrapper.vis {
+    display: block;
+}
+
+.main {
+    height: 860px;
+    width: 1920px;
+    border-radius: 0px 0px 160px 0px;
+    background-color: #FFFFFF;
+}
+
+.container {
+    display: flex;
+}
+
+.kotel {
+    width: 385px;
+}
+
+.circle-container {
+    border-radius: 30px;
+    border: 2px solid #299fb1;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: #FFFFFF;
+}
+
+.circle-container-1 {
+    top: 267px;
+}
+
+.circle-container-2 {
+    top: 435px;
+}
+
+.circle-container-3 {
+    top: 594px;
+}
+
+.circle-container-4 {
+    top: 677px;
+}
+
+.circle-container-5 {
+    top: 336px;
+}
+
+.circle-container-6 {
+    top: 282px;
+    right: 435px;
+}
+
+.circle-container-7-1 {
+    top: 350px;
+    right: 435px;
+}
+
+.circle-container-7-2 {
+    top: 506px;
+    right: 425px;
+}
+
+.circle-container-8-1 {
+    top: 408px;
+    right: 432px;
+}
+
+.circle-container-8-2 {
+    top: 612px;
+    right: 420px;
+}
+
+.circle-container-9 {
+    top: 140px;
+    right: 601px;
+}
+
+.circle-container-10 {
+    top: 505px;
+}
+
+.circles {
+    margin-left: 82px;
+}
+
+.row {
+    display: flex;
+    margin-top: 12px;
+}
+
+.circle-box {
+    position: relative;
+    margin-top: 5px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 30px;
+    background-color: #299fb1;
+    width: 30px;
+    height: 30px;
+    color: #FFFFFF;
+    font-family: ProximaRegular;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2px;
+    box-sizing: border-box;
+    cursor:all-scroll;
+}
+
+.circle-background {
+    position: absolute;
+    border-radius: 30px;
+    background-color: #EEE;
+    width: 30px;
+    height: 30px;
+    color: #CCC;
+    font-family: ProximaRegular;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2px;
+    box-sizing: border-box;
+}
+
+.row-text {
+    margin-top: 5px;
+    margin-left: 40px;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+}

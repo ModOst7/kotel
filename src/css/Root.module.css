@@ -1,0 +1,105 @@
+.main {
+    height: 970px;
+    background: url('../img/root/background1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.container {
+    width: 1146px;
+    height: 970px;
+    background-color: #FFFFFF;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 75px rgba(0, 0, 0, 0.45);
+    border-radius: 0 0 325px 0;
+}
+
+.section {
+    padding: 80px 0 0 270px;
+}
+
+.title-one {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 65px;
+
+    color: #299FB1;
+}
+
+.title-two {
+    display: inline-block;
+    padding: 5px 70px 12px 30px;
+    margin-top: 70px;
+    margin-bottom: 80px;
+
+    background: rgba(41, 159, 177, 0.1);
+    border-radius: 35px;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 65px;
+    color: #299FB1;
+}
+
+.form {
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-name {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.label-name {
+    flex: 1;
+    margin-right: 30px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 35px;
+
+    color: #898989;
+}
+
+.first-name,
+.last-name {
+    flex: 7;
+    border: 2px solid #C5C6C6;
+    border-radius: 35px;
+    padding: 10px 0 10px 20px;
+    font-size: 26px;
+}
+
+.button-container {
+    width: 355px;
+    background: #299FB1;
+    border-radius: 35px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.form a {
+    align-self: self-end;
+    text-decoration: none;
+}
+
+.accept-button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 29px;
+    cursor: pointer;
+}
