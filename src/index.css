@@ -22,3 +22,7 @@ code {
    url("./fonts/Proxima/ProximaRegular.ttf") format("truetype");
   font-weight: normal;
   }
+
+  div:has(#pdf-lab2) {
+    z-index: -1;
+  }

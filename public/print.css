@@ -1,0 +1,21 @@
+#lab2-print {
+    width: 60%;
+    position: absolute;
+    top:0px;
+    left:0px;
+    /* width: 1680px; */
+    /* min-height: 720px; */
+    height: auto;
+    box-shadow: none;
+    
+}
+
+#lab2-print div {
+    font-size: 20px !important;
+    line-height: 26px;
+    color: #000;
+}
+
+#lab2-print img {
+    width: 290px;
+}

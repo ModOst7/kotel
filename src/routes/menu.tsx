@@ -102,7 +102,8 @@ export default function Menu() {
                             <div className={`${styles['descriptions-container']} ${items[1] ? styles['vis'] : ''} `}>
                                 <b>Цель работы:</b>
                                  <div className={styles['descriptions-text']}>
-                                 ach slice file should define a type for its initial state value, so that createSlice can correctly infer the type of state in each case reducer.
+                                 изучить схему устройства парового котла с естественной циркуляцией, научиться правильно сопоставлять потоки и теплофизические параметры в каждой зоне газовоздушного и пароводяного трактов. Приступая к выполнению лабораторной работы, изучите краткие <Link to={`/labTwo`}>теоретические сведения</Link>.
+
                                  </div> 
                             </div>
                             <div className={`${styles['descriptions-container']} ${items[2] ? styles['vis'] : ''} `}>

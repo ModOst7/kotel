@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import styles from "../../css/labOne/labOne.module.css";
+import basedStyles from "../../css/Baza.module.css";
 
 import React, { useState, useEffect } from "react";
 import Theory from "./theory";
-import PartOne from "./partOne";
-import PartTwo from "./partTwo";
-import PartThree from "./partThree";
+import Workplace from "./workplace";
 
-export default function LabOne() {
+
+export default function LabTwo() {
 
     const [scale, setScale] = useState(1)
 
@@ -15,10 +14,11 @@ export default function LabOne() {
     const [moving, setMoving] = useState(false);
 
     const [theoryVis, setTheoryVis] = useState(true);
+    const [workplace, setWorkplace] = useState(false);
     const [partOneVis, setPartOneVis] = useState(false);
     const [partTwoVis, setPartTwoVis] = useState(false);
     const [partThreeVis, setPartThreeVis] = useState(false);
-
+    const date = new Date();
     useEffect(() => {
         scalable(setScale)
         window.onresize = () => {
@@ -26,24 +26,17 @@ export default function LabOne() {
         }
     })
 
-    const handleClick = (e: any) => {
-        const newItems = items.map((item, index) => {
-            if (e.target.getAttribute("data-key") == index) {
-                return true;
-            } else return false;
-        })
-        setMoving(true);
-        setItems(newItems);
-    }
 
     return (
         <>
 
-            <div style={{ "transform": `scale(${scale})`, width: 1920, height: 969, transformOrigin: "top left" }} className={styles['main']}>
-                <Theory theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} />
-                <PartOne theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis}  />
+            <div style={{ "transform": `scale(${scale})`, width: 1920, height: 969, transformOrigin: "top left" }} className={basedStyles['main']}>
+                <Theory theoryVis={theoryVis} setTheoryVis={setTheoryVis} workplace={workplace} setWorkplace={setWorkplace} />
+                <Workplace theoryVis={theoryVis} setTheoryVis={setTheoryVis} workplace={workplace} setWorkplace={setWorkplace} today={date}/>
+                {/*<PartOne theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis}  />
                 <PartTwo partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
-                <PartThree partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
+    <PartThree partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />*/}
+
                 {/*<div className={styles['wrapper']}>
                     <div className={styles['container']}>
                         <div className={`${styles['main']} ${moving ? styles['moved'] : ''} `}>

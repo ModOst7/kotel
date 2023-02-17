@@ -113,6 +113,13 @@
     padding-top: 2px;
     box-sizing: border-box;
     cursor:all-scroll;
+    box-shadow: 0px 0px 1px 1px #299fb1;
+    border: 1px solid #ffffff;
+}
+
+.circle:nth-child(n+3) {
+    left: 2px;
+    bottom: 1px;
 }
 
 .circle-background {
@@ -137,4 +144,44 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 27px;
+}
+
+.complete-button, .next-button {
+    display: none;
+    opacity: 0;
+    width: 50px;
+    margin-left: 102px;
+    margin-bottom: 40px;
+    background-color: #299fb1;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    border-radius: 25px;
+    padding: 5px 30px 5px 30px;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.next-button.vis, .complete-button.vis {
+    display: inline-block;
+    opacity: 1;
+}
+
+.circle-container .circle {
+    animation: scaleOn 0.1s ease-out 0s 1 normal forwards;
+}
+
+@keyframes scaleOn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

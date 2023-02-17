@@ -5,12 +5,14 @@ import partOne from "../../css/labOne/partOne.module.css";
 
 import React, { useState, useEffect } from "react";
 
-export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOneVis, partTwoVis, setPartTwoVis }: { theoryVis: any, setTheoryVis: any, partOneVis: any, setPartOneVis: any, partTwoVis:any, setPartTwoVis:any }) {
-    
+export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOneVis, partTwoVis, setPartTwoVis }: { theoryVis: any, setTheoryVis: any, partOneVis: any, setPartOneVis: any, partTwoVis: any, setPartTwoVis: any }) {
+
     const [rightAnswer, setRightAnswer] = useState(false);
     const [wrongAnswer, setWrongAnswer] = useState(false);
     const [completeButton, setCompleteButton] = useState(true);
     const [nextButton, setNextButton] = useState(false);
+
+    const [completedPuzzle, setCompletedPuzzle] = useState(false);
 
     const [puzzles, setPuzzles] = useState([
         {
@@ -328,7 +330,7 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
             y: 87.5,
             rotation: 270
         },
-        
+
     ]);
 
 
@@ -411,18 +413,21 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                 let puzzle = containers[i].children[0];
                 if (puzzle) {
                     //console.log(puzzle.id + ' ' + containers[i].id + ' ' + puzzles[Number(puzzle.id)].rotation);
-                    if ((parseInt(puzzle.id) != parseInt(containers[i].id)) || (Math.abs(puzzles[Number(puzzle.id)].rotation%360) != 0)) check = false;
+                    if ((parseInt(puzzle.id) != parseInt(containers[i].id)) || (Math.abs(puzzles[Number(puzzle.id)].rotation % 360) != 0)) check = false;
                 } else {
                     check = false;
                 }
             }
         }
         console.log(check);
-        check = true; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //check = true; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (check) {
             setRightAnswer(true);
             setNextButton(true);
             setCompleteButton(false);
+            let elem = document.querySelector<HTMLElement>(`.${partOne['puzzles-container']}`);
+            elem!.style.opacity = "0";
+            setCompletedPuzzle(true);
         } else {
             setWrongAnswer(true);
             setTimeout(() => setWrongAnswer(false), 3000);
@@ -451,22 +456,37 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                             <div className={partOne['title-two']}><b>Котельный агрегат ТП-87</b></div>
                             <div className={partOne['description']}>Соберите правильно пазл и нажмите ГОТОВО.</div>
                             <div id={"puzzles-bank"} draggable={false} onDrop={dropBack} onDragOver={allowDropBack} className={partOne['puzzles-bank']}>{
-                                puzzles.map((item) =>
-                                    <div draggable onDragStart={dragStart} onWheel={rotate} id={String(item.id)} className={partOne['puzzle-crisper']}>
-                                        <div onClick={() => { console.log(puzzles) }} data-key={item.key} key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `${item['x']}% ${item['y']}%`, transform: `rotate(${item['rotation']}deg)` }}>  </div>
-                                    </div>
+                                puzzles.map((item) => {
+                                    if (item.key == 0) return;
+                                    return (
+                                        <div key={item.key} draggable onDragStart={dragStart} onWheel={rotate} id={String(item.id)} className={partOne['puzzle-crisper']}>
+                                            <div onClick={() => { console.log(puzzles) }} data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `${item['x']}% ${item['y']}%`, transform: `rotate(${item['rotation']}deg)` }}>  </div>
+                                        </div>)
+                                }
                                 )
                             }
-                                
+
                             </div>
                         </div>
                         <div className={partOne['center']}>
                             <div className={partOne['puzzles-container']}>
-                                {puzzles.map((item, index) =>
-                                    <div id={`${index}-cont`} onDrop={drop} onDragOver={allowDrop} className={`${partOne['puzzle-container']} container-selector`}></div>
+                                {puzzles.map((item, index) => {
+                                    if (index == 0) return (
+                                        <div key={item.key} id={`${index}-cont`}  className={`${partOne['puzzle-container']} container-selector`}>
+                                            <div key={item.key} id={String(index)} className={partOne['puzzle-crisper']}>
+                                                <div data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `0% 0%`, transform: `rotate(0deg)`, cursor: 'default', filter: 'none' }}>  </div>
+                                            </div>
+                                        </div>
+                                    )
+
+                                    return (
+                                        <div key={item.key} id={`${index}-cont`} onDrop={drop} onDragOver={allowDrop} className={`${partOne['puzzle-container']} container-selector`}></div>
+                                    )
+                                }
                                 )}
-                                
+
                             </div>
+                            <div className={`${partOne['completed-puzzle']} ${completedPuzzle ? partOne['vis'] : ''} `}><img className={partOne['completed-puzzle-img']} src="./img/labOne/kotel.png" /></div>
                         </div>
                         <div className={partOne['right']}>
                             <div className={partOne['messages']}>

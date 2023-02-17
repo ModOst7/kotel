@@ -33,6 +33,23 @@ export default function PartTwo({ partOneVis, setPartOneVis, partTwoVis, setPart
         e.stopPropagation();
     }
 
+    const dropBack = (e:any) => {
+        e.preventDefault();
+        e.stopPropagation();
+        var data = e.dataTransfer.getData("text");
+        console.log(document.getElementById(data)?.id);
+        console.log(e.target.parentNode.id);
+        if ((parseInt(e.target.parentNode.id) == parseInt(document.getElementById(data)!.id)) && (e.target.parentNode.getAttribute('data-drop'))) {
+        //console.log(e.target.parentNode.getAttribute('data-drop'));
+        e.target.parentNode.appendChild(document.getElementById(data));
+        }
+    }
+
+    const allowDropBack = (e:any) => {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
     const putBack = (e: any) => {
         e.preventDefault();
         let idNum = parseInt(e.target.id);
@@ -52,7 +69,7 @@ export default function PartTwo({ partOneVis, setPartOneVis, partTwoVis, setPart
             }
         }
         console.log(check);
-        check = true;
+        //check = true; //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (check) {
             setRightAnswer(true);
             setNextButton(true);
@@ -64,8 +81,8 @@ export default function PartTwo({ partOneVis, setPartOneVis, partTwoVis, setPart
     }
 
     const nextPart = () => {
-        setPartOneVis(false);
-        setPartTwoVis(true);
+        setPartTwoVis(false);
+        setPartThreeVis(true);
     }
 
     return (
@@ -86,43 +103,43 @@ export default function PartTwo({ partOneVis, setPartOneVis, partTwoVis, setPart
                             <div className={partOne['description']}>Переместите цифры, обозначающие элементы котельного агрегата ТП-87, <br />на соответствующие выноски на рисунке.</div>
                             <div className={partTwo['circles']}>
                                 <div className={partTwo['row']}>
-                                    <div id={"1-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>1</div><div onContextMenu={putBack} id={"1-circ"} onDragStart={dragStart} draggable data-circle={1} className={partTwo['circle']}>1</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"1-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>1</div><div id={"1-circ"} onDragStart={dragStart} draggable data-circle={1} className={partTwo['circle']}>1</div></div>
                                     <div className={partTwo['row-text']}>– барабан</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"2-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>2</div><div onContextMenu={putBack} id={"2-circ"} onDragStart={dragStart} draggable data-circle={2} className={partTwo['circle']}>2</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"2-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>2</div><div id={"2-circ"} onDragStart={dragStart} draggable data-circle={2} className={partTwo['circle']}>2</div></div>
                                     <div className={partTwo['row-text']}>– топочная камера</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"3-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>3</div><div onContextMenu={putBack} id={"3-circ"} onDragStart={dragStart} draggable data-circle={3} className={partTwo['circle']}>3</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"3-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>3</div><div id={"3-circ"} onDragStart={dragStart} draggable data-circle={3} className={partTwo['circle']}>3</div></div>
                                     <div className={partTwo['row-text']}>– пылеугольные горелки</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"4-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>4</div><div onContextMenu={putBack} id={"4-circ"} onDragStart={dragStart} draggable data-circle={4} className={partTwo['circle']}>4</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"4-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>4</div><div id={"4-circ"} onDragStart={dragStart} draggable data-circle={4} className={partTwo['circle']}>4</div></div>
                                     <div className={partTwo['row-text']}>– под с леткой</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"5-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>5</div><div onContextMenu={putBack} id={"5-circ"} onDragStart={dragStart} draggable data-circle={5} className={partTwo['circle']}>5</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"5-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>5</div><div id={"5-circ"} onDragStart={dragStart} draggable data-circle={5} className={partTwo['circle']}>5</div></div>
                                     <div className={partTwo['row-text']}>– ширмовый пароперегреватель</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"6-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>6</div><div onContextMenu={putBack} id={"6-circ"} onDragStart={dragStart} draggable data-circle={6} className={partTwo['circle']}>6</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"6-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>6</div><div id={"6-circ"} onDragStart={dragStart} draggable data-circle={6} className={partTwo['circle']}>6</div></div>
                                     <div className={partTwo['row-text']}>– конвективная часть пароперегревателя</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"7-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>7</div><div onContextMenu={putBack} id={"7-1-circ"} onDragStart={dragStart} draggable data-circle={7} className={partTwo['circle']}>7</div><div onContextMenu={putBack} id={"7-2-circ"} onDragStart={dragStart} draggable data-circle={7} className={partTwo['circle']}>7</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"7-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>7</div><div id={"7-1-circ"} onDragStart={dragStart} draggable data-circle={7} className={partTwo['circle']}>7</div><div onContextMenu={putBack} id={"7-2-circ"} onDragStart={dragStart} draggable data-circle={7} className={partTwo['circle']}>7</div></div>
                                     <div className={partTwo['row-text']}>– водяной экономайзер</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"8-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>8</div><div onContextMenu={putBack} id={"8-1-circ"} onDragStart={dragStart} draggable data-circle={8} className={partTwo['circle']}>8</div><div onContextMenu={putBack} id={"8-2-circ"} onDragStart={dragStart} draggable data-circle={8} className={partTwo['circle']}>8</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"8-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>8</div><div id={"8-1-circ"} onDragStart={dragStart} draggable data-circle={8} className={partTwo['circle']}>8</div><div onContextMenu={putBack} id={"8-2-circ"} onDragStart={dragStart} draggable data-circle={8} className={partTwo['circle']}>8</div></div>
                                     <div className={partTwo['row-text']}>– трубчатый воздухоподогреватель</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"9-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>9</div><div onContextMenu={putBack} id={"9-circ"} onDragStart={dragStart} draggable data-circle={9} className={partTwo['circle']}>9</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"9-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>9</div><div id={"9-circ"} onDragStart={dragStart} draggable data-circle={9} className={partTwo['circle']}>9</div></div>
                                     <div className={partTwo['row-text']}>– выносной сепарационный циклон</div>
                                 </div>
                                 <div className={partTwo['row']}>
-                                    <div id={"10-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>10</div><div onContextMenu={putBack} id={"10-circ"} onDragStart={dragStart} draggable data-circle={10} className={partTwo['circle']}>10</div></div>
+                                    <div data-drop={true} onDrop={dropBack} onDragOver={allowDropBack} id={"10-box"} className={partTwo['circle-box']}><div className={partTwo['circle-background']}>10</div><div id={"10-circ"} onDragStart={dragStart} draggable data-circle={10} className={partTwo['circle']}>10</div></div>
                                     <div className={partTwo['row-text']}>– пережим топки</div>
                                 </div>
                             </div>
@@ -147,8 +164,8 @@ export default function PartTwo({ partOneVis, setPartOneVis, partTwoVis, setPart
                                 <div className={`${partOne['right-answer']} ${rightAnswer ? partOne['vis'] : ''} `}>Задание выполнено верно</div>
                                 <div className={`${partOne['wrong-answer']} ${wrongAnswer ? partOne['vis'] : ''} `}>Неверно. Попробуйте еще раз!</div>
                             </div>
-                            <div onClick={check} className={`${partOne['complete-button']} ${completeButton ? partOne['vis'] : ''} `}>ГОТОВО</div>
-                            <div onClick={nextPart} className={`${partOne['next-button']} ${nextButton ? partOne['vis'] : ''} `}>ДАЛЕЕ</div>
+                            <div onClick={check} className={`${partTwo['complete-button']} ${completeButton ? partTwo['vis'] : ''} `}>ГОТОВО</div>
+                            <div onClick={nextPart} className={`${partTwo['next-button']} ${nextButton ? partTwo['vis'] : ''} `}>ДАЛЕЕ</div>
                         </div>
                     </div>
                 </div>

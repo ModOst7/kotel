@@ -9,27 +9,67 @@
 }
 
 .main {
+    transition: 1s;
     height: 860px;
     width: 1920px;
     border-radius: 0px 0px 160px 0px;
     background-color: #FFFFFF;
+    background-position: 960px 26px;
+    /*background-position: 2100px 16px;*/
+}
+
+.main.modified {
+    background-repeat: no-repeat;
+    background-position: 955px 21px;
+    background-color: rgb(216, 238, 241);
+    background-image: url('../../img/menu/background2.png');
 }
 
 .container {
+    display: none;
+}
+
+
+.container.vis {
     display: flex;
 }
 
-.kotel {
-    width: 385px;
+.left {
+    margin-top: 35px;
+    margin-left: 10px;
+    width: 820px;
 }
 
-.circle-container {
+.kotel {
+    width: 565px;
+}
+
+.circle {
+    transition: 0.2s;
     border-radius: 30px;
     border: 2px solid #299fb1;
     width: 30px;
     height: 30px;
     position: absolute;
     background-color: #FFFFFF;
+
+    position: absolute;
+    border-radius: 30px;
+    background-color: #299fb1;
+    width: 30px;
+    height: 30px;
+    color: #FFFFFF;
+    font-family: ProximaRegular;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle:hover {
+    transform: scale(1.2);
 }
 
 .circle-container-1 {
@@ -100,21 +140,6 @@
     margin-top: 5px;
 }
 
-.circle {
-    position: absolute;
-    border-radius: 30px;
-    background-color: #299fb1;
-    width: 30px;
-    height: 30px;
-    color: #FFFFFF;
-    font-family: ProximaRegular;
-    font-size: 22px;
-    text-align: center;
-    padding-top: 2px;
-    box-sizing: border-box;
-    cursor:all-scroll;
-}
-
 .circle-background {
     position: absolute;
     border-radius: 30px;
@@ -137,4 +162,323 @@
     font-weight: 400;
     font-size: 22px;
     line-height: 27px;
+}
+
+.detail-0,
+.detail-1,
+.detail-2,
+.detail-3,
+.detail-4,
+.detail-5 {
+    padding: 40px 180px;
+    display: none;
+    flex-direction: column;
+}
+
+.detail-0.vis,
+.detail-1.vis,
+.detail-2.vis,
+.detail-3.vis,
+.detail-4.vis,
+.detail-5.vis {
+    display: flex;
+}
+
+.detail-container {
+    min-height: 565px;
+    display: none;
+    justify-content: space-between;
+}
+
+.detail-container.vis {
+    display: flex;
+    animation: appear 1s ease;
+}
+
+.left-column,
+.right-column {
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.right-column {
+    width: 735px;
+}
+
+.img-title {
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #07464F;
+    margin-top: 15px;
+}
+
+.navigation {
+    justify-content: flex-end;
+    display: flex;
+}
+
+.next-slide-button,
+.prev-slide-button,
+.close-slide-button {
+    display: none;
+    opacity: 0;
+    width: 120px;
+    margin-left: 100px;
+    background-color: #299fb1;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    border-radius: 25px;
+    padding: 20px 30px 20px 30px;
+    white-space: pre;
+    color: #FFFFFF;
+    cursor: pointer;
+    align-self: end;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.table-title {
+    align-self: start;
+    margin-left: -100px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.table-header {
+    display: flex;
+    background-color: #006D7C;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.table {
+    width: 920px;
+}
+
+.table-body {}
+
+.table-row {
+    display: flex;
+    color: #07464F;
+    background-color: #C1D4DC;
+}
+
+.table-row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.col-one,
+.col-two,
+.col-three,
+.col-four {
+    padding: 5px 0px 5px 10px;
+}
+
+.col-one {
+    flex: 5;
+}
+
+.col-two {
+    flex: 1;
+}
+
+.col-three {
+    flex: 2;
+}
+
+.col-four {
+    flex: 2;
+}
+
+
+
+.next-slide-button.vis,
+.prev-slide-button.vis,
+.close-slide-button.vis {
+    display: inline-block;
+    opacity: 1;
+}
+
+.detail-container img {
+    border-radius: 20px;
+}
+
+.detail-container p {
+    margin: 10px 0;
+}
+
+p.description-title {
+    align-self: start;
+    margin-left: 45px;
+}
+
+.detail-container ul {
+    margin: 0 0 0 -40px;
+}
+
+.detail-container li {
+    margin-left: 27px;
+}
+
+.img-0-2 {
+    width: 725px;
+}
+
+.img-1-1 {
+    width: 495px;
+}
+
+.img-1-2 {
+    width: 640px;
+}
+
+.img-2-1 {
+    width: 660px;
+}
+
+.img-3-1 {
+    width: 675px;
+}
+
+.img-3-2 {
+    width: 570px;
+}
+
+.img-5-1 {
+    width: 460px;
+}
+
+.img-5-2 {
+    width: 485px;
+}
+
+.img-5-3 {
+    width: 710px;
+}
+
+.img-5-4 {
+    width: 410px;
+}
+
+.wrong-answer, .right-answer {
+    transition: 2s;
+    display: none;
+    opacity: 0;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 70px;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #006d7c;
+}
+
+.wrong-answer.vis, .right-answer.vis {
+    display: block;
+    opacity: 1;
+    /*animation: ShowAndFade 1s ease;*/
+}
+
+.complete-button, .next-button {
+    display: none;
+    opacity: 0;
+    width: 50px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    background-color: #299fb1;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    border-radius: 25px;
+    padding: 5px 30px 5px 30px;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.next-button.vis, .complete-button.vis {
+    display: inline-block;
+    opacity: 1;
+}
+
+.final {
+    display: none;
+    opacity: 0;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 56px;
+    color: #006D7C;
+    text-align: center;
+    margin-top: 260px;
+}
+
+.final.vis {
+    animation: appear 1s ease;
+    animation-fill-mode: forwards;
+    display: block;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.back {
+    display: none;
+    opacity: 0;
+    width: 120px;
+    margin-left: 820px;
+    margin-top: 273px;
+    background-color: #299fb1;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    border-radius: 25px;
+    padding: 20px 30px 20px 30px;
+    white-space: pre;
+    color: #FFFFFF;
+    cursor: pointer;
+    align-self: end;
+    text-align: center;
+}
+
+.back.vis {
+    animation: appear 1s ease;
+    display: inline-block;
+    opacity: 1;
 }

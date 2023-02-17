@@ -48,13 +48,20 @@
 
 
 .puzzle {
-    transition: 0.5s;
+    transition: 0.1s;
     --sizing: 100;
     display: inline-block;
     background-image: url('../../img/labOne/puzzles_razobr.png');
     background-size: 500%;
     height: 90px;
     width: 90px;
+    position: relative;
+    cursor: all-scroll;
+}
+
+.puzzle:hover {
+    filter: drop-shadow(0px 0px 3px rgb(40, 40, 40));
+    z-index: 2;
 }
 
 .puzzles-bank {
@@ -126,7 +133,8 @@
     justify-content: flex-end;
 }
 
-.complete-button, .next-button {
+.complete-button,
+.next-button {
     display: none;
     opacity: 0;
     width: 50px;
@@ -162,30 +170,40 @@
     color: #006d7c;
 }
 
-.next-button.vis, .complete-button.vis {
+.next-button.vis,
+.complete-button.vis {
     display: inline-block;
     opacity: 1;
 }
 
-.wrong-answer.vis, .right-answer.vis {
+.wrong-answer.vis,
+.right-answer.vis {
     display: block;
     opacity: 1;
     /*animation: ShowAndFade 1s ease;*/
 }
 
+.completed-puzzle {
+    position: absolute;
+    top: 160px;
+    display: none;
+}
+
+.completed-puzzle.vis {
+    display: block;
+    animation: appear 1s ease-in-out 0s 1 normal forwards;
+}
+
+.completed-puzzle-img {
+    width: 385px;
+}
+
 @keyframes appear {
     0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 1;
+        opacity: 0;
     }
 
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
-
-
-

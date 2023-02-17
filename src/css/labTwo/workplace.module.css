@@ -1,0 +1,806 @@
+.wrapper {
+    background: #299FB1;
+    height: 970px;
+    display: none;
+}
+
+.wrapper.vis {
+    display: block;
+}
+
+.main {
+    transition: 1s;
+    height: 860px;
+    width: 1920px;
+    border-radius: 0px 0px 160px 0px;
+    background-color: #FFFFFF;
+}
+
+.main.modified {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.choose-slide {
+    display: none;
+    flex-direction: column;
+    margin: 100px;
+}
+
+.choose-slide.vis {
+    display: flex;
+}
+
+.left {
+    padding: 30px 0px 0px 190px
+}
+
+.kotel-image {
+    position: absolute;
+    left: 261px;
+    top: 279px;
+}
+
+.kotel-image-2 {
+    position: absolute;
+    left: 251px;
+    top: 298px;
+}
+
+.kotel-image.hid,
+.kotel-image-2.hid {
+    animation: fadeOut 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+.tract-one-container,
+.tract-two-container {
+    display: none;
+    opacity: 0;
+}
+
+.tract-one-container.vis,
+.tract-two-container.vis {
+    display: block;
+    animation: appear 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+.tract-one-image {
+    position: relative;
+}
+
+.right {
+    padding: 30px 0px 0px 90px
+}
+
+.selects-container {
+    min-width: 625px;
+    height: 500px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.description {
+    margin-bottom: 30px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.answer-title {
+    margin-bottom: 15px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #006D7C;
+}
+
+.complete-button,
+.next-button {
+    display: none;
+    opacity: 0;
+    width: 122px;
+    margin-left: 100px;
+    background-color: #299fb1;
+    white-space: pre;
+    text-align: center;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+
+    border-radius: 25px;
+    padding: 20px 30px 20px 30px;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.next-button.vis {
+    display: inline-block;
+    animation: appear 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+.block {
+    margin-bottom: 50px;
+    height: 96px;
+    border-radius: 25px 25px 0px 0px;
+    background: #299FB1;
+    width: 367px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 29px;
+    line-height: 39px;
+    color: #FFFFFF;
+    border-bottom: 2px solid rgba(137, 137, 137, 1);
+
+    cursor: pointer;
+}
+
+.block.disable {
+    pointer-events: none;
+    background: #C1D4DC;
+    color: #898989;
+    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-width: 0.3px;
+}
+
+.tract-one,
+.tract-two {
+    display: none;
+}
+
+.tract-one.vis,
+.tract-two.vis {
+    display: flex;
+}
+
+.select-title {
+    padding: 5px 15px;
+    text-align: center;
+    background: #006D7C;
+    border-radius: 50px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.select-title-inactive {
+    text-align: center;
+    padding: 2px 15px 7px 15px;
+    background: #EDF2F4;
+    border-radius: 50px;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    color: #07464F;
+}
+
+.select-container {
+    display: none;
+}
+
+.select-container.vis {
+    display: flex;
+}
+
+.select-current {
+    background-color: #EDF2F4;
+    background-image: url('../../img/labTwo/arrow.png');
+    background-position: 95% 60%;
+    background-repeat: no-repeat;
+    border-radius: 50px;
+    padding: 2px 15px 7px 15px;
+    position: relative;
+    border: 2px solid rgba(41, 159, 177, 0);
+    z-index: 2;
+    cursor: pointer;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.select-current:hover {
+    border: 2px solid rgba(41, 159, 177, 1);
+}
+
+.options-container {
+    background-color: #E7EEF1;
+    width: 210px;
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: 0 0 40px 40px;
+    padding-bottom: 20px;
+    margin-top: -20px;
+
+    max-height: 0;
+    max-height: 330px;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.option {
+    padding: 2px 15px 7px 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    color: #4f0707;
+}
+
+.option:first-child {
+    margin-top: 20px;
+}
+
+.select-1 {
+    width: 240px;
+    margin-left: 5px;
+}
+
+.select-2 {
+    width: 240px;
+    margin-left: 5px;
+}
+
+
+.gas-one,
+.gas-two,
+.gas-three,
+.gas-four,
+.gas-five,
+.gas-six,
+.gas-seven,
+.vapor-one,
+.vapor-two,
+.vapor-three,
+.vapor-four,
+.vapor-five,
+.vapor-six,
+.vapor-seven {
+    display: inline-block;
+    background: red;
+    position: absolute;
+    padding: 9px;
+    cursor: pointer;
+    width: 55px;
+    opacity: 0.5;
+}
+
+.gas-one {
+    width: 80px;
+    height: 77px;
+    top: 618px;
+    left: 349px;
+}
+
+.gas-two {
+    width: 40px;
+    height: 80px;
+    top: 382px;
+    left: 374px;
+}
+
+.gas-three {
+    width: 65px;
+    height: 50px;
+    top: 385px;
+    left: 515px;
+}
+
+.gas-four {
+    width: 50px;
+    top: 546px;
+    left: 535px;
+}
+
+.gas-five {
+    width: 50px;
+    top: 626px;
+    left: 536px;
+}
+
+.gas-six {
+    top: 680px;
+    left: 544px;
+}
+
+.gas-seven {
+    width: 10px;
+    height: 14px;
+    top: 581px;
+    left: 318px;
+}
+
+.vapor-one {
+    width: 25px;
+    left: 280px;
+    top: 326px;
+}
+
+.vapor-two {
+    width: 0px;
+    height: 160px;
+    left: 292px;
+    top: 376px;
+}
+
+.vapor-three {
+    width: 45px;
+    left: 527px;
+    top: 604px;
+}
+
+.vapor-four {
+    width: 0px;
+    height: 165px;
+    left: 650px;
+    top: 335px;
+}
+
+.vapor-five {
+    width: 40px;
+    height: 80px;
+    top: 402px;
+    left: 364px;
+}
+
+.vapor-six {
+    width: 45px;
+    left: 527px;
+    top: 472px;
+}
+
+.vapor-seven {
+    width: 37px;
+    height: 0px;
+    left: 469px;
+    top: 309px;
+}
+
+.indicator-gas-1 {
+    position: absolute;
+    left: 265px;
+    top: 691px;
+}
+
+.indicator-gas-2 {
+    position: absolute;
+    left: 203px;
+    top: 358px;
+}
+
+.indicator-gas-3 {
+    position: absolute;
+    left: 553px;
+    top: 278px;
+}
+
+.indicator-gas-4 {
+    position: absolute;
+    left: 694px;
+    top: 517px;
+}
+
+.indicator-gas-5 {
+    position: absolute;
+    left: 694px;
+    top: 600px;
+}
+
+.indicator-gas-6 {
+    position: absolute;
+    left: 694px;
+    top: 643px;
+}
+
+.indicator-gas-7 {
+    position: absolute;
+    left: 227px;
+    top: 626px;
+}
+
+.indicator-vapor-1 {
+    position: absolute;
+    left: 203px;
+    top: 285px;
+}
+
+.indicator-vapor-2 {
+    position: absolute;
+    left: 203px;
+    top: 472px;
+}
+
+.indicator-vapor-3 {
+    position: absolute;
+    left: 684px;
+    top: 585px;
+}
+
+.indicator-vapor-4 {
+    position: absolute;
+    left: 720px;
+    top: 324px;
+}
+
+.indicator-vapor-5 {
+    position: absolute;
+    left: 203px;
+    top: 391px;
+}
+
+.indicator-vapor-6 {
+    position: absolute;
+    left: 720px;
+    top: 383px;
+}
+
+.indicator-vapor-7 {
+    position: absolute;
+    left: 562px;
+    top: 277px;
+}
+
+
+
+.final-slide {
+    display: none;
+}
+
+.final-slide.vis {
+    display: block;
+}
+
+.final-title {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 56px;
+    color: #006D7C;
+    text-align: center;
+}
+
+.final-container {
+    display: flex;
+    padding: 40px 0px 0px 200px;
+}
+
+.final-description {
+    margin-left: 10px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.final-description-text::-webkit-scrollbar-thumb {
+    background-color: #299FB1;
+    outline: none;
+}
+
+.final-description-text::-webkit-scrollbar {
+    width: 20px;
+}
+
+.final-description-text::-webkit-scrollbar-track {
+    background-color: #babfc085;
+    margin-top: 15px;
+}
+
+.final-description-title {
+
+}
+
+.final-description-text {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.report-slide {
+    display: none;
+}
+
+.report-slide a {
+    text-decoration: none;
+}
+
+.report-slide.vis {
+    display: flex;
+}
+
+.report-container {
+    display: flex;
+}
+
+.report-left {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    padding: 30px 25px 0px 25px;
+}
+
+.report-left-text {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #0E4969;
+}
+
+.report-right {
+    width: 1395px;
+    height: 720px;
+    box-sizing: border-box;
+    padding: 10px 7px 10px 77px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 33px 75px rgb(0 0 0 / 45%);
+    overflow-y: scroll;
+}
+
+.report-right::-webkit-scrollbar-thumb {
+    background-color: #299FB1;
+    outline: none;
+}
+
+.report-right::-webkit-scrollbar {
+    width: 20px;
+}
+
+.report-right::-webkit-scrollbar-track {
+    background-color: #E7EEF1;
+    margin-top: 15px;
+}
+
+.report-header {}
+
+.report-header-text {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.report-image-1 {}
+
+.report-header-row {
+    display: flex;
+}
+
+.report-header-row div {
+    background-color: #006D7C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.report-col-1,
+.report-col-2 {
+    margin-right: 5px;
+}
+
+.report-title-row {
+    background-color: #C1D4DC;
+    padding: 7px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.report-row {
+    display: flex;
+}
+
+.report-row div {
+    background-color: #EDF2F4;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #07464F;
+}
+
+.report-row .report-col-2, .report-row .report-col-3 {
+    text-align: left;
+}
+
+.report-col-1 {
+    flex: 0.9;
+    padding: 5px 0px 5px 10px;
+}
+
+.report-col-2 {
+    flex: 3;
+    padding: 5px 0px 5px 10px;
+}
+
+.report-col-3 {
+    flex: 3;
+    padding: 5px 0px 5px 10px;
+}
+
+.report-tracts {
+    display: flex;
+}
+
+.report-tracts-container {
+    width: 1520px;
+    margin-left: 10px;
+}
+
+.report-header-row,
+.report-title-row,
+.report-row {
+    margin-bottom: 5px;
+}
+
+.report-image-2 {
+    margin-top: 230px;
+}
+
+
+
+
+
+
+
+.back {
+    display: none;
+    opacity: 0;
+    width: 120px;
+    background-color: #299fb1;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    border-radius: 25px;
+    padding: 20px 30px 20px 30px;
+    margin-bottom: 30px;
+    white-space: pre;
+    color: #FFFFFF;
+    cursor: pointer;
+    align-self: end;
+    text-align: center;
+}
+
+.back.vis {
+    animation: appear 1s ease;
+    display: inline-block;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+div:has(#pdf-lab2) {
+    z-index: -2;
+}
+
+#pdf-lab2 .report-col-1 {
+    font-size: 10px;
+}
+
+#pdf-lab2 .report-right {
+    height: auto;
+    width: 800px;
+}
+
+#pdf-lab2 .report-image-1, #pdf-lab2 .report-image-2 {
+    width: 230px;
+}
+
+#pdf-lab2 .report-right div {
+    font-size: 16px !important;
+    line-height: 17px;
+}
+
+#pdf-lab2 .report-col-1,
+#pdf-lab2 .report-col-2 {
+    margin-right: 2px;
+}
+
+#pdf-lab2 .report-header-row,
+#pdf-lab2 .report-title-row,
+#pdf-lab2 .report-row {
+    margin-bottom: 2px;
+}

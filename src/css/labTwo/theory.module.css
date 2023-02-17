@@ -1,0 +1,84 @@
+.wrapper {
+    background: #299FB1;
+    height: 970px;
+    display: none;
+}
+
+.wrapper.vis {
+    display: block;
+}
+
+.main {
+    height: 860px;
+    width: 1920px;
+    border-radius: 0px 0px 160px 0px;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955)
+}
+
+.container {
+    margin: 30px 180px 30px 180px;
+    display: flex;
+    font-family: 'Proxima Nova Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #07464F;
+}
+
+.left-column,
+.right-column {
+    font-family: ProximaRegular;
+    flex: 1;
+}
+
+.left-column {}
+
+.right-column {
+    margin-left: 85px;
+}
+
+.container p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.start-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 200px;
+    margin-top: 20px;
+}
+
+.start-text {
+    margin-right: 15px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+
+    color: #FFFFFF;
+}
+
+.scheme {
+    margin-top: 20px;
+}
+
+.numeric-list {
+    margin-left: -18px;
+    margin-top: 0px;
+}
+
+ol li {
+    margin: 10px 0px;
+}
