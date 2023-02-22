@@ -118,8 +118,8 @@
 }
 
 .circle:nth-child(n+3) {
-    left: 2px;
-    bottom: 1px;
+    /*left: 2px;
+    bottom: 1px;*/
 }
 
 .circle-background {

@@ -295,26 +295,27 @@
 .vapor-six,
 .vapor-seven {
     display: inline-block;
-    background: red;
+    background: rgba(225, 0, 0, 1);
     position: absolute;
     padding: 9px;
     cursor: pointer;
     width: 55px;
-    opacity: 0.5;
+    opacity: 0;
 }
 
 .gas-one {
     width: 80px;
     height: 77px;
-    top: 618px;
+    top: 605px;
     left: 349px;
+    border-radius: 0px 0px 80px 80px;
 }
 
 .gas-two {
-    width: 40px;
+    width: 90px;
     height: 80px;
     top: 382px;
-    left: 374px;
+    left: 345px;
 }
 
 .gas-three {
@@ -436,6 +437,34 @@
     top: 626px;
 }
 
+.tract-one-container.vis .indicator-gas-1 {
+    animation: scaleIn 0.2s ease-in-out 1s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-2 {
+    animation: scaleIn 0.2s ease-in-out 1.2s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-3 {
+    animation: scaleIn 0.2s ease-in-out 1.4s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-4 {
+    animation: scaleIn 0.2s ease-in-out 1.6s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-5 {
+    animation: scaleIn 0.2s ease-in-out 1.8s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-6 {
+    animation: scaleIn 0.2s ease-in-out 2.0s 1 normal both;
+}
+
+.tract-one-container.vis .indicator-gas-7 {
+    animation: scaleIn 0.2s ease-in-out 2.2s 1 normal both;
+}
+
 .indicator-vapor-1 {
     position: absolute;
     left: 203px;
@@ -478,7 +507,33 @@
     top: 277px;
 }
 
+.tract-two-container.vis .indicator-vapor-1 {
+    animation: scaleIn 0.2s ease-in-out 1s 1 normal both;
+}
 
+.tract-two-container.vis .indicator-vapor-2 {
+    animation: scaleIn 0.2s ease-in-out 1.2s 1 normal both;
+}
+
+.tract-two-container.vis .indicator-vapor-3 {
+    animation: scaleIn 0.2s ease-in-out 1.4s 1 normal both;
+}
+
+.tract-two-container.vis .indicator-vapor-4 {
+    animation: scaleIn 0.2s ease-in-out 1.6s 1 normal both;
+}
+
+.tract-two-container.vis .indicator-vapor-5 {
+    animation: scaleIn 0.2s ease-in-out 1.8s 1 normal both;
+}
+
+.tract-two-container.vis .indicator-vapor-6 {
+    animation: scaleIn 0.2s ease-in-out 2.0s 1 normal both;
+}
+
+.tract-two-container.vis .indicator-vapor-7 {
+    animation: scaleIn 0.2s ease-in-out 2.2s 1 normal both;
+}
 
 .final-slide {
     display: none;
@@ -500,7 +555,7 @@
 
 .final-container {
     display: flex;
-    padding: 40px 0px 0px 200px;
+    padding: 40px 0px 0px 20px;
 }
 
 .final-description {
@@ -573,6 +628,12 @@
     color: #0E4969;
 }
 
+.report-left-text span {
+    text-decoration: underline;
+    color: brown;
+    cursor: pointer;
+}
+
 .report-right {
     width: 1395px;
     height: 720px;
@@ -608,8 +669,22 @@
 
     color: #07464F;
 }
+/*
+.report-image-1 {
+    background-image: url('../../img/labTwo/report-1.png');
+    width: 407px;
+    height: 499px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
-.report-image-1 {}
+.report-image-2 {
+    background-image: url('../../img/labTwo/report-2.png');
+    width: 469px;
+    height: 517px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}*/
 
 .report-header-row {
     display: flex;
@@ -772,6 +847,15 @@
     }
 }
 
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 div:has(#pdf-lab2) {
     z-index: -2;
 }
@@ -790,8 +874,8 @@ div:has(#pdf-lab2) {
 }
 
 #pdf-lab2 .report-right div {
-    font-size: 16px !important;
-    line-height: 17px;
+    font-size: 14px !important;
+    line-height: 14px;
 }
 
 #pdf-lab2 .report-col-1,

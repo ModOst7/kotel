@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import basedStyles from "../../css/Baza.module.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Theory from "./theory";
 import Workplace from "./workplace";
 
@@ -18,7 +18,9 @@ export default function LabTwo() {
     const [partOneVis, setPartOneVis] = useState(false);
     const [partTwoVis, setPartTwoVis] = useState(false);
     const [partThreeVis, setPartThreeVis] = useState(false);
-    const date = new Date();
+    //const date = new Date();
+    const date = useMemo(() => new Date(), []);
+
     useEffect(() => {
         scalable(setScale)
         window.onresize = () => {

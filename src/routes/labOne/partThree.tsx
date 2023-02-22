@@ -501,7 +501,7 @@ export default function PartThree({ partTwoVis, setPartTwoVis, partThreeVis, set
                             <div className={partThree['left-column']}>
                                 <img className={partThree["img-3-2"]} src="./img/labOne/detail3-2.png" />
                                 <div className={partThree["img-title"]}><p>Устройство пароперегревателя:</p>
-                                    1 – потолочный пароперегреватель; 2 – ширмовый пароперегреватель; 3 – конвективный пароперегреватель
+                                    1 – потолочный пароперегреватель; 2 – ширмовый пароперегреватель; <br />3 – конвективный пароперегреватель
                                 </div>
                             </div>
                             <div className={partThree['right-column']} >
@@ -577,8 +577,8 @@ export default function PartThree({ partTwoVis, setPartTwoVis, partThreeVis, set
                         <div className={`${partThree['detail-container']} ${slideThree ? partThree['vis'] : ''} `}>
                             <div className={partThree['left-column']}>
                                 <img className={partThree["img-5-4"]} src="./img/labOne/detail5-4.png" />
-                                <div className={partThree["img-title"]}><p>Устройство горелки котельного агрегата:</p>
-                                    1 – труба, по которой осуществляется подача первичного воздуха; 2 – прямоточный мундштук; 3 – наконечник; 4 – амбразура; 5 – полукольцо; 6 – улитка; 7 – трубка-сопло; 8 – кольцевой канал; 9 – отверстие
+                                <div className={partThree["img-title"]} style={{width: "765px"}}><p>Устройство горелки котельного агрегата:</p>
+                                    1 – труба, по которой осуществляется подача первичного воздуха; <br />2 – прямоточный мундштук; 3 – наконечник; 4 – амбразура; 5 – полукольцо; 6 – улитка; 7 – трубка-сопло; 8 – кольцевой канал; 9 – отверстие
                                 </div>
                             </div>
                             <div className={partThree['right-column']}>
@@ -588,8 +588,8 @@ export default function PartThree({ partTwoVis, setPartTwoVis, partThreeVis, set
                         <div className={`${partThree['detail-container']} ${slideFour ? partThree['vis'] : ''} `}>
                             <div className={partThree['left-column']}>
                                 <img className={partThree["img-5-4"]} src="./img/labOne/detail5-4.png" />
-                                <div className={partThree["img-title"]}><p>Устройство горелки котельного агрегата:</p>
-                                    1 – труба, по которой осуществляется подача первичного воздуха; 2 – прямоточный мундштук; 3 – наконечник; 4 – амбразура; 5 – полукольцо; 6 – улитка; 7 – трубка-сопло; 8 – кольцевой канал; 9 – отверстие
+                                <div className={partThree["img-title"]} style={{width: "765px"}}><p>Устройство горелки котельного агрегата:</p>
+                                    1 – труба, по которой осуществляется подача первичного воздуха; <br />2 – прямоточный мундштук; 3 – наконечник; 4 – амбразура; 5 – полукольцо; 6 – улитка; 7 – трубка-сопло; 8 – кольцевой канал; 9 – отверстие
                                 </div>
                             </div>
                             <div className={partThree['right-column']}>

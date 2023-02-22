@@ -68,13 +68,17 @@
 
 .footer {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 }
 
 
 .help {
     margin: 20px 0px 0px 60px;
+}
+
+.help img:hover {
+    animation: hoverAnim 0.3s ease-in-out 0s 1 normal forwards;
 }
 
 .report {
@@ -101,6 +105,10 @@
     margin-left: 15px;
 }
 
+.save-icon {
+    margin-top: 10px;
+}
+
 .print-save {
     display: none;
 }
@@ -113,7 +121,6 @@
     display: flex;
     align-items: center;
     margin-right: 100px;
-    margin-top: 15px;
     cursor: pointer;
 
     font-family: 'Segoe UI';
@@ -129,7 +136,6 @@
     display: flex;
     align-items: center;
     margin-right: 30px;
-    margin-top: 15px;
     cursor: pointer;
 
     font-family: 'Segoe UI';
@@ -139,4 +145,26 @@
     line-height: 29px;
 
     color: #ECFFFF;
+}
+
+.save:hover img, .print:hover img {
+    animation: hoverAnim 0.3s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes hoverAnim {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@media print {
+    .print-save {
+        opacity: 0;
+    }
 }

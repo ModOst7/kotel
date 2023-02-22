@@ -459,7 +459,7 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                                 puzzles.map((item) => {
                                     if (item.key == 0) return;
                                     return (
-                                        <div key={item.key} draggable onDragStart={dragStart} onWheel={rotate} id={String(item.id)} className={partOne['puzzle-crisper']}>
+                                        <div key={item.key} draggable onDragStart={dragStart} onWheel={rotate} onClick={(e:any) => {if (e.detail == 2) rotateRight(e.target.getAttribute('data-key'))}} onContextMenu={(e:any) => {rotateRight(e.target.getAttribute('data-key')); e.preventDefault()}} id={String(item.id)} className={partOne['puzzle-crisper']}>
                                             <div onClick={() => { console.log(puzzles) }} data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `${item['x']}% ${item['y']}%`, transform: `rotate(${item['rotation']}deg)` }}>  </div>
                                         </div>)
                                 }
