@@ -3,11 +3,11 @@ import styles from "../../css/labOne/labOne.module.css";
 
 import React, { useState, useEffect } from "react";
 import Theory from "./theory";
-import PartOne from "./partOne";
-import PartTwo from "./partTwo";
-import PartThree from "./partThree";
 
-export default function LabOne() {
+import PartOne from "./partOne";
+/*import PartTwo from "./partTwo";*/
+
+export default function LabThree() {
 
     const [scale, setScale] = useState(1)
 
@@ -18,8 +18,6 @@ export default function LabOne() {
     const [partOneVis, setPartOneVis] = useState(false);
     const [partTwoVis, setPartTwoVis] = useState(false);
     const [partThreeVis, setPartThreeVis] = useState(false);
-
-  
 
     useEffect(() => {
         scalable(setScale)
@@ -44,24 +42,8 @@ export default function LabOne() {
             <div style={{ "transform": `scale(${scale})`, width: 1920, height: 969, transformOrigin: "top left" }} className={styles['main']}>
                 <Theory theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} />
                 <PartOne scale={scale} theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis}  />
-                <PartTwo scale={scale} partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
-                <PartThree partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
-                {/*<div className={styles['wrapper']}>
-                    <div className={styles['container']}>
-                        <div className={`${styles['main']} ${moving ? styles['moved'] : ''} `}>
-                            <div className={styles['header']}>
-                                <img className={styles["header-icon"]} src="./img/menu/header-icon.png" />
-                                <div className={styles['header-title']}>
-                                    <div className={styles['title-one']}>Котельное оборудование ТЭС.<br /> Устройство, эксплуатация, техническое обслуживание. </div>
-                                    <div className={styles['title-two']}>Электронный практикум</div>
-                                </div>
-                            </div>         
-                        </div>                
-                    </div>
-                    <div className={styles['footer']}>
-                        <div className={styles['help']}><img className={styles["help-icon"]} src="./img/menu/help.png" /></div>
-                    </div>
-    </div>*/}
+                {/*<PartTwo partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
+    */}
             </div>
         </>
     );

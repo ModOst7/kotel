@@ -109,9 +109,7 @@ export default function Menu() {
                             <div className={`${styles['descriptions-container']} ${items[2] ? styles['vis'] : ''} `}>
                                 <b>Цель работы:</b>
                                  <div className={styles['descriptions-text']}>
-                                 All generated actions should be defined using the PayloadActiontype from Redux Toolkit, which takes the type of the action.payload field as its generic argument.
-
-You can safely import the RootState type from the store file here. It's a circular import, but the TypeScript compiler can correctly handle that for types. This may be needed for use cases like writing selector functions.
+                                 научиться составлять схему деаэрации водоподготовительной установки котельного агрегата с учетом движения потоков (воды, пара и выпара) между ее элементами. Приступая к выполнению лабораторной работы, изучите краткие <Link to={`/labThree`}>теоретические сведения</Link>.
                                  </div> 
                             </div>
                             <div className={`${styles['descriptions-container']} ${items[3] ? styles['vis'] : ''} `}>

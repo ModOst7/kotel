@@ -37,3 +37,7 @@
     transform: translateY(0px);
   }
 }
+
+#root {
+  /*background-color: #299fb1;*/
+}

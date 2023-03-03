@@ -3,14 +3,18 @@ import styles from "../../css/labOne/labOne.module.css";
 import theory from "../../css/labOne/theory.module.css";
 import partOne from "../../css/labOne/partOne.module.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
-export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOneVis, partTwoVis, setPartTwoVis }: { theoryVis: any, setTheoryVis: any, partOneVis: any, setPartOneVis: any, partTwoVis: any, setPartTwoVis: any }) {
-
+export default function PartOne({ scale, theoryVis, setTheoryVis, partOneVis, setPartOneVis, partTwoVis, setPartTwoVis }: { scale: number, theoryVis: any, setTheoryVis: any, partOneVis: any, setPartOneVis: any, partTwoVis: any, setPartTwoVis: any }) {
+    var downFlag = false;
     const [rightAnswer, setRightAnswer] = useState(false);
     const [wrongAnswer, setWrongAnswer] = useState(false);
     const [completeButton, setCompleteButton] = useState(true);
     const [nextButton, setNextButton] = useState(false);
+    const [hint, setHint] = useState(false);
+    const [hintReady, setHintReady] = useState(false);
+
+    const [timerId, setTimerId] = useState<any>(0)
 
     const [completedPuzzle, setCompletedPuzzle] = useState(false);
 
@@ -335,26 +339,62 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
 
 
 
+
+
     const dragStart = (e: any) => {
+        
         e.stopPropagation();
-        console.log(e.target.children[0]);
         e.dataTransfer.setData("text", e.target.id);
-        console.log(e.dataTransfer.getData("text"));
+        puzzles.forEach(element => {
+            if (element.id == e.target.id) {
+                e.target.children[0].style.transform = `scale(${scale}) rotate(${element.rotation}deg)`;
+            }
+        })
+        
+        let node = document.getElementById(e.target.id)?.cloneNode(true);
+        document.getElementById("drag-coveredup")!.appendChild(node!);
+        
+        //console.log(node.classList);
+        //node.styles.display = "inline-block";
+        //let child = document.body.appendChild(node!);
+        
+        //e.target.style.transform = `scale(0.5)`
+        //e.target.style.background = "#fff0";
+        //e.target.style.transform = `scale(0.1) rotate(${puzzles[e.target.id]}deg) !important`;
+        setTimeout(() => {
+            //e.target.style.background = "white";
+            puzzles.forEach(element => {
+                if (element.id == e.target.id) {
+                    e.target.children[0].style.transform = `scale(1) rotate(${element.rotation}deg)`;
+                }
+            })
+            node!.parentNode!.removeChild(node!);
+            //e.target.style.transform = `rotate(${puzzles[e.target.id]}deg) !important`;
+        }, 1)
+        //e.target.style.display = "none";
+        //node.style.transform = `scale(0.5)`;
+        e.dataTransfer.setDragImage(node, 50, 50);
     }
 
     const drop = (e: any) => {
+        console.log(timerId);
+        setTimerId(0);
         e.preventDefault();
         e.stopPropagation();
         var data = e.dataTransfer.getData("text");
-        console.log(data);
         e.target.appendChild(document.getElementById(data));
+        {
+            clearTimeout(timerId);
+            setHintReady(false);
+            setHint(false);
+        }
+
+        document.getElementById(data)!.style.display = "inline-block";
     }
 
     const dropBack = (e: any) => {
+        setTimerId(0);
         if ((e.target.id == "puzzles-bank") || (e.target.parentNode.id == "puzzles-bank") || (e.target.parentNode.parentNode.id == "puzzles-bank")) {
-            console.log(e.target.parentNode.id);
-            console.log(e.target.parentNode.parentNode.id);
-            console.log(e.target.id);
             var data = e.dataTransfer.getData("text");
 
             let target = document.querySelector(`.${partOne['puzzles-bank']}`);
@@ -362,10 +402,19 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
             if (target && puzzle) target.appendChild(puzzle);
             //e.target.appendChild(document.getElementById(data));
         }
+        console.log('drop');
+/*
+        {
+            clearTimeout(timer1);
+            setHintReady(false);
+            setHint(false);
+            timer1 = setTimeout(() => {
+                setHintReady(true);
+            }, 5000);
+        }*/
     }
 
     const allowDrop = (e: any) => {
-        console.log(e.target.children.length);
         if (e.target.children.length > 0) return;
         e.preventDefault();
         e.stopPropagation();
@@ -439,6 +488,29 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
         setPartTwoVis(true);
     }
 
+    const showHint = () => {
+        //if (hintReady) {
+        setHint(true);
+        //}
+
+    }
+
+    const [timerState, setTimerState] = useState(false);
+
+    useEffect(() => {
+        setTimerId(0);
+        const interval = setInterval(() => {
+            setTimerId((timerId:any) => timerId + 1);
+            
+        },1000)
+        /*clearTimeout(timer1);
+        setHintReady(false);
+        timer1 = setTimeout(() => {
+            setHintReady(true);
+        }, 5000);*/
+        return () => clearInterval(interval);
+    }, [partOneVis])
+
     return (
         <div className={`${partOne['wrapper']} ${partOneVis ? partOne['vis'] : ''} `}>
             <div className={styles['container']}>
@@ -459,8 +531,8 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                                 puzzles.map((item) => {
                                     if (item.key == 0) return;
                                     return (
-                                        <div key={item.key} draggable onDragStart={dragStart} onWheel={rotate} onClick={(e:any) => {if (e.detail == 2) rotateRight(e.target.getAttribute('data-key'))}} onContextMenu={(e:any) => {rotateRight(e.target.getAttribute('data-key')); e.preventDefault()}} id={String(item.id)} className={partOne['puzzle-crisper']}>
-                                            <div onClick={() => { console.log(puzzles) }} data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `${item['x']}% ${item['y']}%`, transform: `rotate(${item['rotation']}deg)` }}>  </div>
+                                        <div key={item.key} draggable onDragStart={dragStart} onWheel={rotate} onContextMenu={(e: any) => { rotateRight(e.target.getAttribute('data-key')); e.preventDefault() }} id={String(item.id)} className={partOne['puzzle-crisper']}>
+                                            <div onClick={() => { console.log(puzzles) }} data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `${item['x']}% ${item['y']}%`, transform: `rotate(${item['rotation']}deg)`}}>  </div>
                                         </div>)
                                 }
                                 )
@@ -469,10 +541,10 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                             </div>
                         </div>
                         <div className={partOne['center']}>
-                            <div className={partOne['puzzles-container']}>
+                            <div className={`${partOne['puzzles-container']} ${hint ? partOne['hint'] : ''} `}>
                                 {puzzles.map((item, index) => {
                                     if (index == 0) return (
-                                        <div key={item.key} id={`${index}-cont`}  className={`${partOne['puzzle-container']} container-selector`}>
+                                        <div key={item.key} id={`${index}-cont`} className={`${partOne['puzzle-container']} container-selector`}>
                                             <div key={item.key} id={String(index)} className={partOne['puzzle-crisper']}>
                                                 <div data-key={item.key} className={partOne['puzzle']} style={{ backgroundPosition: `0% 0%`, transform: `rotate(0deg)`, cursor: 'default', filter: 'none' }}>  </div>
                                             </div>
@@ -500,7 +572,7 @@ export default function PartOne({ theoryVis, setTheoryVis, partOneVis, setPartOn
                 </div>
             </div>
             <div className={styles['footer']}>
-                <div className={styles['help']}><img className={styles["help-icon"]} src="./img/menu/help.png" /></div>
+                <div onMouseEnter={showHint} onMouseLeave={() => { setHint(false) }} className={`${styles['help']} ${(timerId > 30) ? styles['active'] : ''} `}><img className={styles["help-icon"]} src="./img/menu/help.png" /></div>
             </div>
         </div>
     );

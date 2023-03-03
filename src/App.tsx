@@ -6,6 +6,7 @@ import Root from "./routes/root";
 import Menu from "./routes/menu";
 import LabOne from './routes/labOne/labOne';
 import LabTwo from './routes/labTwo/labTwo';
+import LabThree from './routes/labThree/labThree';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ function App() {
           <Route path="menu" element={<Menu />} />
           <Route path="labOne" element={<LabOne />} />
           <Route path="labTwo" element={<LabTwo />} />
+          <Route path="labThree" element={<LabThree />} />
         </Routes>
       </HashRouter>
     </div>

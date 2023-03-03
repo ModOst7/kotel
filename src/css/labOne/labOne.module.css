@@ -74,6 +74,25 @@
 
 
 .help {
+    border-radius: 50px;
     margin: 20px 0px 0px 60px;
 }
 
+.help.active {
+    animation: shadow-drop-center 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both;
+}
+
+
+@keyframes shadow-drop-center {
+    0% {
+        transform: scale(1);
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        transform: scale(1.05);
+        -webkit-box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.35);
+        box-shadow: 0 0 20px 0px rgba(255, 255, 255, 0.35);
+    }
+}

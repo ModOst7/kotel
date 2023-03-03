@@ -1,0 +1,9 @@
+.ol-list ul:before {
+    content:  "—";
+    position: relative;
+    left:     -5px;
+}
+
+.ol-list ul {
+    margin: 10px 0px;
+}

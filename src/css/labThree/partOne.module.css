@@ -1,0 +1,360 @@
+.container {
+    display: flex;
+}
+
+.left {
+    flex: 1.5;
+}
+
+
+
+.exercise-title {
+    margin-left: 190px;
+    margin-top: 20px;
+    padding-right: 100px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #07464F;
+}
+
+.exercise-status {
+    display: flex;
+}
+
+.message-wrong,
+.message-right {
+    display: flex;
+    visibility: collapse;
+    margin-left: 185px;
+    margin-top: 10px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+
+    color: #11567C;
+}
+
+.message-right.vis,
+.message-wrong.vis {
+    display: flex;
+    visibility: visible;
+    animation: popIn 0.3s ease-in-out 0s 1 normal forwards;
+}
+
+.message-wrong {
+    display: none;
+}
+
+.text-wrong,
+.text-right {
+    margin-left: 8px;
+}
+
+.message-right {
+    display: flex;
+    visibility: collapse;
+}
+
+
+
+.drop-container {
+    margin-left: 150px;
+}
+
+.drop-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 900px;
+}
+
+.drop-box {
+    width: 252px;
+    height: 236px;
+    background: #E7EEF1;
+    border: 1px solid #299FB1;
+    border-radius: 35px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.drop-box.big-box {
+    width: 305px;
+    height: 264px;
+}
+
+.drop-box .image-on,
+.drop-box .image-over {
+    width: inherit;
+}
+
+.right {
+    flex: 1;
+}
+
+.box-title {
+    margin-top: 30px;
+
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #07464F;
+}
+
+.drag-container {
+    width: 750px;
+    height: 580px;
+}
+
+.drag-box {
+    position: absolute;
+}
+
+.deaerator {
+    top: 500px;
+    right: 55px;
+    width: 287px;
+    height: 259px;
+}
+
+#deaerator {
+    width: 287px;
+    height: 259px;
+}
+
+.gazomazut {
+    right: 40px;
+    top: 320px;
+    width: 179px;
+    height: 153px;
+}
+
+#gazomazut {
+    width: 179px;
+    height: 153px;
+}
+
+.kondensator {
+    right: 567px;
+    top: 365px;
+    width: 270px;
+    height: 181px;
+}
+
+#kondensator {
+    width: 270px;
+    height: 181px;
+}
+
+.nasos {
+    right: 236px;
+    top: 221px;
+    width: 135px;
+    height: 191px;
+}
+
+#nasos {
+    width: 135px;
+    height: 191px;
+}
+
+.par {
+    top: 250px;
+    right: 388px;
+    width: 158px;
+    height: 214px;
+}
+
+#par {
+    width: 158px;
+    height: 214px;
+}
+
+.pitatel {
+    right: 607px;
+    top: 202px;
+    width: 186px;
+    height: 148px;
+}
+
+#pitatel {
+    width: 186px;
+    height: 148px;
+}
+
+.sbornik {
+    right: 360px;
+    top: 520px;
+    width: 171px;
+    height: 211px;
+}
+
+#sbornik {
+    width: 171px;
+    height: 211px;
+}
+
+.vozduh {
+    right: 550px;
+    top: 567px;
+    width: 288px;
+    height: 193px;
+}
+
+#vozduh {
+    width: 288px;
+    height: 193px;
+}
+
+.element {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.element.visible > div {
+    animation: fadeIn 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+.element.hidden > div {
+    animation: fadeOut 0.01s ease-in-out 0s 1 normal forwards;
+}
+
+#for-par, #for-sbornik, #for-kondensator, #for-nasos, #for-pitatel {
+
+}
+
+.image-over {
+    position: absolute;
+}
+
+.image-on {
+    position: absolute;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.image-on:hover {
+    opacity: 1;
+}
+
+.navigation {
+    display: flex;
+}
+
+.next-slide-button,
+.prev-slide-button {
+    transition: 0.2s;
+    display: inline-block;
+    visibility: hidden;
+    opacity: 0;
+    width: 120px;
+    margin-left: 100px;
+    background-color: #299fb1;
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    border-radius: 25px;
+    padding: 20px 30px 20px 30px;
+    white-space: pre;
+    color: #FFFFFF;
+    cursor: pointer;
+    align-self: end;
+    text-align: center;
+}
+
+.next-slide-button {
+    display: none;
+}
+
+.prev-slide-button {
+    margin-left: 0px;
+}
+
+.next-slide-button.vis,
+.prev-slide-button.vis {
+    display: inline-block;
+    visibility: visible;
+    animation: fadeIn 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+.drop-box #vozduh img, .drop-box #kondensator img {
+    width: 250px;
+}
+
+.drop-box #deaerator img {
+    width: 228px;
+    margin: 15px;
+}
+
+#big-box #vozduh img, #big-box #kondensator img {
+    width: inherit;
+}
+
+#big-box #deaerator img {
+    width: 250px;
+}
+
+.drop-box .element {
+    animation: scaleIn 0.2s ease-in-out 0s 1 normal forwards;
+}
+
+.drag-box .element {
+    animation: scaleIn 0.2s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

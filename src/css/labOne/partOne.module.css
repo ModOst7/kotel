@@ -27,17 +27,28 @@
 
 .center {
     margin: 20px 0 0 0;
+    background-image: url('../../img/labOne/kotel_lighter.png');
+    background-size: 104% 101%;
+    background-repeat: no-repeat;
+    background-position: -8px 0px;
 }
 
 .puzzles-container {
+    transition: 0.3s;
     width: 387px;
     /*border: 1px solid gray;*/
-
     background:
         linear-gradient(90deg, #FFF 21px, transparent 1%) center,
         linear-gradient(#FFF 21px, transparent 1%) center,
         #AAA;
     background-size: 23px 23px;
+
+}
+
+.puzzles-container.hint {
+    transition: none;
+    background: linear-gradient(90deg, #fff0 21px, transparent 1%) center, linear-gradient(#fff0 21px, transparent 1%) center, #fff0;
+    background-size: 21px 21px;
 }
 
 .puzzles-container .puzzle {
@@ -48,7 +59,6 @@
 
 
 .puzzle {
-    transition: 0.1s;
     --sizing: 100;
     display: inline-block;
     background-image: url('../../img/labOne/puzzles_razobr.png');
@@ -60,6 +70,7 @@
 }
 
 .puzzle:hover {
+    transition: 0.2s;
     filter: drop-shadow(0px 0px 3px rgb(40, 40, 40));
     z-index: 2;
 }
@@ -207,3 +218,5 @@
         opacity: 1;
     }
 }
+
+  
