@@ -156,6 +156,8 @@ export default function PartOne({ scale, theoryVis, setTheoryVis, partOneVis, se
 
     const nextStep = (e: any) => {
         console.log('asd');
+        setPartTwoVis(true);
+        setPartOneVis(false);
     }
 
     useEffect(() => {
@@ -267,6 +269,7 @@ export default function PartOne({ scale, theoryVis, setTheoryVis, partOneVis, se
                                     </div>
                                 </div>
                             </div>
+                            
                             <div className={partOne['navigation']}>
                                 <div onClick={() => {setPartOneVis(false); setTheoryVis(true); }} className={`${partOne['prev-slide-button']} ${backButton ? partOne['vis'] : ''} `}>{'<'}  НАЗАД</div>
                                 <div onClick={check} className={`${partOne['next-slide-button']} ${nextButton ? partOne['vis'] : ''} `}>ДАЛЕЕ  {'>'}</div>

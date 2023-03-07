@@ -1,0 +1,102 @@
+.wrapper {
+    background: #299FB1;
+    height: 970px;
+    display: none;
+}
+
+.wrapper.vis {
+    display: block;
+}
+
+.main {
+    height: 860px;
+    width: 1920px;
+    border-radius: 0px 0px 160px 0px;
+    background-color: #FFFFFF;
+}
+
+.container {
+    display: flex;
+}
+.description {
+    margin-top: 5px;
+    margin-left: 130px;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+
+    color: #006d7c;
+}
+
+.description-right {
+    margin-top: 5px;
+    margin-bottom: 60px;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+
+    color: #006d7c;
+}
+
+.complete-button, .next-button {
+    display: none;
+    opacity: 0;
+    width: 50px;
+    margin-left: 102px;
+    margin-bottom: 40px;
+    background-color: #299fb1;
+
+    font-family: ProximaRegular;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+
+    border-radius: 25px;
+    padding: 5px 30px 5px 30px;
+
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.next-button.vis, .complete-button.vis {
+    display: inline-block;
+    opacity: 1;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.legend {
+
+}
+
+.water, .vapor, .vaporout {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+
+.legend-title {
+    margin-right: 10px;
+}
+
+@keyframes scaleOn {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

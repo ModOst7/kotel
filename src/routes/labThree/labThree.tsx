@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Theory from "./theory";
 
 import PartOne from "./partOne";
-/*import PartTwo from "./partTwo";*/
+import PartTwo from "./partTwo";
 
 export default function LabThree() {
 
@@ -42,8 +42,8 @@ export default function LabThree() {
             <div style={{ "transform": `scale(${scale})`, width: 1920, height: 969, transformOrigin: "top left" }} className={styles['main']}>
                 <Theory theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} />
                 <PartOne scale={scale} theoryVis={theoryVis} setTheoryVis={setTheoryVis} partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis}  />
-                {/*<PartTwo partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
-    */}
+                <PartTwo partOneVis={partOneVis} setPartOneVis={setPartOneVis} partTwoVis={partTwoVis} setPartTwoVis={setPartTwoVis} partThreeVis={partThreeVis} setPartThreeVis={setPartThreeVis}  />
+    
             </div>
         </>
     );
